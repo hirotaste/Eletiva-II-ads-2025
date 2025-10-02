@@ -27,6 +27,7 @@ class StudentController extends Controller
             'email' => 'required|email|unique:students',
             'phone' => 'nullable|string',
             'birth_date' => 'required|date',
+            'status' => 'required|in:active,inactive,graduated,suspended',
             'enrollment_date' => 'required|date',
         ]);
 
