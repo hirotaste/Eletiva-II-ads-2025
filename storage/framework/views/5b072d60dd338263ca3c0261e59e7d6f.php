@@ -5,10 +5,10 @@
 <?php $__env->startSection('page-title', 'Dashboard'); ?>
 
 <?php $__env->startSection('content'); ?>
-<div class="row">
+<div class="row stats-row">
     <!-- Statistics Cards -->
     <div class="col-md-3 mb-4">
-        <div class="card text-white" style="background: linear-gradient(45deg, #667eea, #764ba2);">
+        <div class="card text-white stats-card" style="background: linear-gradient(45deg, #667eea, #764ba2);">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="col-md-3 mb-4">
-        <div class="card text-white" style="background: linear-gradient(45deg, #f093fb, #f5576c);">
+        <div class="card text-white stats-card" style="background: linear-gradient(45deg, #f093fb, #f5576c);">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="col-md-3 mb-4">
-        <div class="card text-white" style="background: linear-gradient(45deg, #4facfe, #00f2fe);">
+        <div class="card text-white stats-card" style="background: linear-gradient(45deg, #4facfe, #00f2fe);">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-md-3 mb-4">
-        <div class="card text-white" style="background: linear-gradient(45deg, #43e97b, #38f9d7);">
+        <div class="card text-white stats-card" style="background: linear-gradient(45deg, #43e97b, #38f9d7);">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
