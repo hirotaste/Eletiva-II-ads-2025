@@ -41,8 +41,8 @@
                             </td>
                             <td><strong>{{ $student['gpa'] }}</strong></td>
                             <td class="text-end">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="{{ route('students.edit', $student['id']) }}" class="btn btn-outline-primary">
+                                <div class="action-buttons-container">
+                                    <a href="{{ route('students.edit', $student['id']) }}" class="btn btn-outline-primary action-btn" title="Editar Estudante">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form method="POST" action="{{ route('students.destroy', $student['id']) }}" 
@@ -50,7 +50,7 @@
                                           onsubmit="return confirm('Tem certeza que deseja excluir este estudante?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger">
+                                        <button type="submit" class="btn btn-outline-danger action-btn" title="Excluir Estudante">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>

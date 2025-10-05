@@ -47,6 +47,24 @@
             font-weight: bold;
             color: #764ba2 !important;
         }
+        .action-btn {
+            min-width: 38px !important;
+            min-height: 38px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 6px !important;
+            transition: all 0.2s ease !important;
+        }
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .action-buttons-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>

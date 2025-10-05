@@ -42,8 +42,8 @@
                                 </span>
                             </td>
                             <td class="text-end">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="<?php echo e(route('disciplines.edit', $discipline['id'])); ?>" class="btn btn-outline-primary">
+                                <div class="action-buttons-container">
+                                    <a href="<?php echo e(route('disciplines.edit', $discipline['id'])); ?>" class="btn btn-outline-primary action-btn" title="Editar Disciplina">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form method="POST" action="<?php echo e(route('disciplines.destroy', $discipline['id'])); ?>" 
@@ -51,7 +51,7 @@
                                           onsubmit="return confirm('Tem certeza que deseja excluir esta disciplina?')">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>
-                                        <button type="submit" class="btn btn-outline-danger">
+                                        <button type="submit" class="btn btn-outline-danger action-btn" title="Excluir Disciplina">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>

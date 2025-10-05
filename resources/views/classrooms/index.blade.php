@@ -47,8 +47,8 @@
                                 @endif
                             </td>
                             <td class="text-end">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="{{ route('classrooms.edit', $classroom['id']) }}" class="btn btn-outline-primary">
+                                <div class="action-buttons-container">
+                                    <a href="{{ route('classrooms.edit', $classroom['id']) }}" class="btn btn-outline-primary action-btn" title="Editar Sala">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form method="POST" action="{{ route('classrooms.destroy', $classroom['id']) }}" 
@@ -56,7 +56,7 @@
                                           onsubmit="return confirm('Tem certeza que deseja excluir esta sala?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger">
+                                        <button type="submit" class="btn btn-outline-danger action-btn" title="Excluir Sala">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>

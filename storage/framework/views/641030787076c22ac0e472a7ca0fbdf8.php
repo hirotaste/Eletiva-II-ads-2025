@@ -42,8 +42,8 @@
                             </td>
                             <td><strong><?php echo e($student['gpa']); ?></strong></td>
                             <td class="text-end">
-                                <div class="btn-group btn-group-sm">
-                                    <a href="<?php echo e(route('students.edit', $student['id'])); ?>" class="btn btn-outline-primary">
+                                <div class="action-buttons-container">
+                                    <a href="<?php echo e(route('students.edit', $student['id'])); ?>" class="btn btn-outline-primary action-btn" title="Editar Estudante">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form method="POST" action="<?php echo e(route('students.destroy', $student['id'])); ?>" 
@@ -51,7 +51,7 @@
                                           onsubmit="return confirm('Tem certeza que deseja excluir este estudante?')">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>
-                                        <button type="submit" class="btn btn-outline-danger">
+                                        <button type="submit" class="btn btn-outline-danger action-btn" title="Excluir Estudante">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
