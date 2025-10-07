@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Instituição de Ensino
 
-Sistema desenvolvido para gerenciar uma instituição de ensino superior, incluindo professores, disciplinas, salas de aula, alunos e matriz curricular.
+Sistema desenvolvido para gerenciar uma instituição de ensino, incluindo professores, disciplinas, salas de aula, alunos e matriz curricular.
 
 ## Estrutura do Banco de Dados
 
