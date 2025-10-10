@@ -2,9 +2,21 @@
 
 namespace App\Services;
 
+/**
+ * Data Service for session-based data storage.
+ * Provides temporary data storage for development and testing purposes.
+ * 
+ * @deprecated This service is for temporary storage only. Use proper database models in production.
+ */
 class DataService
 {
-    public static function initializeData()
+    /**
+     * Initialize session data with sample records.
+     * Creates default data for teachers, disciplines, students, and classrooms if not present.
+     *
+     * @return void
+     */
+    public static function initializeData(): void
     {
         if (!session()->has('teachers')) {
             session([
@@ -84,13 +96,26 @@ class DataService
         }
     }
 
-    public static function getNextId($entity)
+    /**
+     * Get the next available ID for an entity.
+     *
+     * @param string $entity The entity type
+     * @return int The next ID
+     */
+    public static function getNextId(string $entity): int
     {
         $items = session($entity, []);
         return count($items) > 0 ? max(array_column($items, 'id')) + 1 : 1;
     }
 
-    public static function add($entity, $data)
+    /**
+     * Add a new item to session storage.
+     *
+     * @param string $entity The entity type
+     * @param array<string, mixed> $data The data to store
+     * @return array<string, mixed> The stored data with ID
+     */
+    public static function add(string $entity, array $data): array
     {
         $items = session($entity, []);
         $data['id'] = self::getNextId($entity);
@@ -99,12 +124,25 @@ class DataService
         return $data;
     }
 
-    public static function getAll($entity)
+    /**
+     * Get all items of a specific entity type.
+     *
+     * @param string $entity The entity type
+     * @return array<int, array<string, mixed>> Array of items
+     */
+    public static function getAll(string $entity): array
     {
         return session($entity, []);
     }
 
-    public static function find($entity, $id)
+    /**
+     * Find a specific item by ID.
+     *
+     * @param string $entity The entity type
+     * @param int $id The item ID
+     * @return array<string, mixed>|null The found item or null
+     */
+    public static function find(string $entity, int $id): ?array
     {
         $items = session($entity, []);
         foreach ($items as $item) {
@@ -115,7 +153,15 @@ class DataService
         return null;
     }
 
-    public static function update($entity, $id, $data)
+    /**
+     * Update an existing item.
+     *
+     * @param string $entity The entity type
+     * @param int $id The item ID
+     * @param array<string, mixed> $data The updated data
+     * @return array<string, mixed>|null The updated item or null if not found
+     */
+    public static function update(string $entity, int $id, array $data): ?array
     {
         $items = session($entity, []);
         foreach ($items as $key => $item) {
@@ -129,7 +175,14 @@ class DataService
         return null;
     }
 
-    public static function delete($entity, $id)
+    /**
+     * Delete an item by ID.
+     *
+     * @param string $entity The entity type
+     * @param int $id The item ID
+     * @return bool True if deleted, false if not found
+     */
+    public static function delete(string $entity, int $id): bool
     {
         $items = session($entity, []);
         foreach ($items as $key => $item) {
