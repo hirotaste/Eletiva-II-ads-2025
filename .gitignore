@@ -17,7 +17,12 @@ public_html/hot
 
 storage/*.key
 storage/logs/*.log
+storage/framework/sessions/*
+!storage/framework/sessions/.gitkeep
+storage/framework/views/*
+!storage/framework/views/.gitkeep
 .env
+eletiva_db
 Homestead.yaml
 Homestead.json
 /.vagrant
