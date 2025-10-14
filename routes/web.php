@@ -5,6 +5,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Dashboard
-Route::get('/dashboard', function () {
-    \App\Services\DataService::initializeData();
-    return view('dashboard');
-})->name('dashboard');
+// Authentication Routes
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Teachers Routes
+// Protected Routes (require authentication)
+Route::middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', function () {
+        \App\Services\DataService::initializeData();
+        return view('dashboard');
+    })->name('dashboard');
+
+    // Teachers Routes
 Route::get('/teachers', [TeacherController::class, 'webIndex'])->name('teachers.index');
 Route::get('/teachers/create', [TeacherController::class, 'create'])->name('teachers.create');
 Route::post('/teachers', [TeacherController::class, 'webStore'])->name('teachers.store');
@@ -46,10 +54,11 @@ Route::get('/disciplines/{id}/edit', [DisciplineController::class, 'edit'])->nam
 Route::put('/disciplines/{id}', [DisciplineController::class, 'webUpdate'])->name('disciplines.update');
 Route::delete('/disciplines/{id}', [DisciplineController::class, 'webDestroy'])->name('disciplines.destroy');
 
-// Classrooms Routes
-Route::get('/classrooms', [ClassroomController::class, 'webIndex'])->name('classrooms.index');
-Route::get('/classrooms/create', [ClassroomController::class, 'create'])->name('classrooms.create');
-Route::post('/classrooms', [ClassroomController::class, 'webStore'])->name('classrooms.store');
-Route::get('/classrooms/{id}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
-Route::put('/classrooms/{id}', [ClassroomController::class, 'webUpdate'])->name('classrooms.update');
-Route::delete('/classrooms/{id}', [ClassroomController::class, 'webDestroy'])->name('classrooms.destroy');
+    // Classrooms Routes
+    Route::get('/classrooms', [ClassroomController::class, 'webIndex'])->name('classrooms.index');
+    Route::get('/classrooms/create', [ClassroomController::class, 'create'])->name('classrooms.create');
+    Route::post('/classrooms', [ClassroomController::class, 'webStore'])->name('classrooms.store');
+    Route::get('/classrooms/{id}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
+    Route::put('/classrooms/{id}', [ClassroomController::class, 'webUpdate'])->name('classrooms.update');
+    Route::delete('/classrooms/{id}', [ClassroomController::class, 'webDestroy'])->name('classrooms.destroy');
+});

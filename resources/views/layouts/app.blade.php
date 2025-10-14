@@ -20,6 +20,8 @@
             top: 0;
             width: 16.66667%; /* col-md-2 width */
             z-index: 1000;
+            display: flex;
+            flex-direction: column;
         }
         .sidebar .nav-link {
             color: white;
@@ -216,6 +218,25 @@
                         </a>
                     </li>
                 </ul>
+                
+                <!-- User Info & Logout -->
+                <div class="mt-auto pt-3" style="border-top: 1px solid rgba(255,255,255,0.2);">
+                    <div class="text-white text-center mb-2" style="font-size: 0.9rem;">
+                        <i class="fas fa-user-circle me-1"></i>
+                        <span class="nav-text">{{ Auth::user()->name }}</span>
+                    </div>
+                    <div class="text-center mb-2">
+                        <span class="badge bg-light text-dark nav-text">{{ ucfirst(Auth::user()->level) }}</span>
+                    </div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="nav-link text-center w-100 border-0" style="background: transparent;">
+                            <i class="fas fa-sign-out-alt me-2"></i>
+                            <span class="nav-text">Sair</span>
+                            <div class="nav-tooltip">Sair</div>
+                        </button>
+                    </form>
+                </div>
             </nav>
 
             <!-- Main content -->
