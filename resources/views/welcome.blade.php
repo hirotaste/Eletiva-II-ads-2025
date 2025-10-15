@@ -186,11 +186,15 @@
 
         <div class="api-links">            </p>
 
-            <a href="/dashboard" class="api-link dashboard-link">        </div>
-
-                🚀 ACESSAR SISTEMA COMPLETO        
-
-            </a>        <p style="margin-top: 2rem; color: #666; font-size: 0.9rem;">
+            <a href="/login" class="api-link dashboard-link">
+                🔐 FAZER LOGIN
+            </a>
+            <a href="/dashboard" class="api-link dashboard-link">
+                🚀 ACESSAR SISTEMA COMPLETO
+            </a>
+        </div>
+        
+        <p style="margin-top: 2rem; color: #666; font-size: 0.9rem;">
 
                         Laravel {{ app()->version() }} | PHP {{ PHP_VERSION }}
 

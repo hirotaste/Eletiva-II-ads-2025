@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use App\Models\Teacher;
 use App\Models\Discipline;
 use App\Models\Classroom;
@@ -18,6 +20,49 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create Users with different levels
+        User::create([
+            'name' => 'Stefano',
+            'email' => 'stefano@admin.com',
+            'password' => Hash::make('password'),
+            'level' => 'admin',
+        ]);
+
+        User::create([
+            'name' => 'Admin Geral',
+            'email' => 'admin@sistema.edu.br',
+            'password' => Hash::make('password'),
+            'level' => 'admin',
+        ]);
+
+        User::create([
+            'name' => 'Prof. João Silva',
+            'email' => 'joao.silva@instituicao.edu.br',
+            'password' => Hash::make('password'),
+            'level' => 'professor',
+        ]);
+
+        User::create([
+            'name' => 'Profa. Maria Santos',
+            'email' => 'maria.santos@instituicao.edu.br',
+            'password' => Hash::make('password'),
+            'level' => 'professor',
+        ]);
+
+        User::create([
+            'name' => 'Carlos Alberto Souza',
+            'email' => 'carlos.souza@aluno.edu.br',
+            'password' => Hash::make('password'),
+            'level' => 'estudante',
+        ]);
+
+        User::create([
+            'name' => 'Ana Paula Lima',
+            'email' => 'ana.lima@aluno.edu.br',
+            'password' => Hash::make('password'),
+            'level' => 'estudante',
+        ]);
+
         // Create Teachers
         $teacher1 = Teacher::create([
             'name' => 'Prof. João Silva',
