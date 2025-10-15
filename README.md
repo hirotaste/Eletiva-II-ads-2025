@@ -2,6 +2,17 @@
 
 Sistema desenvolvido para gerenciar uma instituição de ensino, incluindo professores, disciplinas, salas de aula, alunos e matriz curricular.
 
+## ✨ Novas Funcionalidades
+
+### Autenticação e Autorização
+- ✅ **Recuperação de Senha**: Sistema completo de reset de senha via e-mail
+- ✅ **Verificação de E-mail**: Confirmação de e-mail para novos usuários
+- ✅ **Dashboards por Nível**: Interfaces personalizadas para Admin, Professor e Estudante
+- ✅ **Middleware de Permissões**: Controle de acesso baseado em níveis de usuário
+- ✅ **Sistema de Logs**: Auditoria completa de acessos e ações no sistema
+
+📖 **Documentação completa**: [AUTHENTICATION_AUTHORIZATION.md](docs/AUTHENTICATION_AUTHORIZATION.md)
+
 ## Estrutura do Banco de Dados
 
 ### Tabelas Principais
