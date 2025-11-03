@@ -6,6 +6,11 @@ use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\SalaController;
+use App\Http\Controllers\PeriodoLetivoController;
+use App\Http\Controllers\TurmaController;
+use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\EmailVerificationController;
@@ -79,6 +84,41 @@ Route::middleware('auth')->group(function () {
         Route::get('/classrooms/{id}/edit', [ClassroomController::class, 'edit'])->name('classrooms.edit');
         Route::put('/classrooms/{id}', [ClassroomController::class, 'webUpdate'])->name('classrooms.update');
         Route::delete('/classrooms/{id}', [ClassroomController::class, 'webDestroy'])->name('classrooms.destroy');
+
+        // Cursos Management (Admin Only)
+        Route::get('/cursos/create', [CursoController::class, 'create'])->name('cursos.create');
+        Route::post('/cursos', [CursoController::class, 'webStore'])->name('cursos.store');
+        Route::get('/cursos/{id}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
+        Route::put('/cursos/{id}', [CursoController::class, 'webUpdate'])->name('cursos.update');
+        Route::delete('/cursos/{id}', [CursoController::class, 'webDestroy'])->name('cursos.destroy');
+
+        // Salas Management (Admin Only)
+        Route::get('/salas/create', [SalaController::class, 'create'])->name('salas.create');
+        Route::post('/salas', [SalaController::class, 'webStore'])->name('salas.store');
+        Route::get('/salas/{id}/edit', [SalaController::class, 'edit'])->name('salas.edit');
+        Route::put('/salas/{id}', [SalaController::class, 'webUpdate'])->name('salas.update');
+        Route::delete('/salas/{id}', [SalaController::class, 'webDestroy'])->name('salas.destroy');
+
+        // Períodos Letivos Management (Admin Only)
+        Route::get('/periodos-letivos/create', [PeriodoLetivoController::class, 'create'])->name('periodos-letivos.create');
+        Route::post('/periodos-letivos', [PeriodoLetivoController::class, 'webStore'])->name('periodos-letivos.store');
+        Route::get('/periodos-letivos/{id}/edit', [PeriodoLetivoController::class, 'edit'])->name('periodos-letivos.edit');
+        Route::put('/periodos-letivos/{id}', [PeriodoLetivoController::class, 'webUpdate'])->name('periodos-letivos.update');
+        Route::delete('/periodos-letivos/{id}', [PeriodoLetivoController::class, 'webDestroy'])->name('periodos-letivos.destroy');
+
+        // Turmas Management (Admin Only)
+        Route::get('/turmas/create', [TurmaController::class, 'create'])->name('turmas.create');
+        Route::post('/turmas', [TurmaController::class, 'webStore'])->name('turmas.store');
+        Route::get('/turmas/{id}/edit', [TurmaController::class, 'edit'])->name('turmas.edit');
+        Route::put('/turmas/{id}', [TurmaController::class, 'webUpdate'])->name('turmas.update');
+        Route::delete('/turmas/{id}', [TurmaController::class, 'webDestroy'])->name('turmas.destroy');
+
+        // Matrículas Management (Admin Only)
+        Route::get('/matriculas/create', [MatriculaController::class, 'create'])->name('matriculas.create');
+        Route::post('/matriculas', [MatriculaController::class, 'webStore'])->name('matriculas.store');
+        Route::get('/matriculas/{id}/edit', [MatriculaController::class, 'edit'])->name('matriculas.edit');
+        Route::put('/matriculas/{id}', [MatriculaController::class, 'webUpdate'])->name('matriculas.update');
+        Route::delete('/matriculas/{id}', [MatriculaController::class, 'webDestroy'])->name('matriculas.destroy');
     });
 
     // Professor and Admin Routes
@@ -88,6 +128,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/students', [StudentController::class, 'webIndex'])->name('students.index');
         Route::get('/disciplines', [DisciplineController::class, 'webIndex'])->name('disciplines.index');
         Route::get('/classrooms', [ClassroomController::class, 'webIndex'])->name('classrooms.index');
+        Route::get('/cursos', [CursoController::class, 'webIndex'])->name('cursos.index');
+        Route::get('/salas', [SalaController::class, 'webIndex'])->name('salas.index');
+        Route::get('/periodos-letivos', [PeriodoLetivoController::class, 'webIndex'])->name('periodos-letivos.index');
+        Route::get('/turmas', [TurmaController::class, 'webIndex'])->name('turmas.index');
+        Route::get('/matriculas', [MatriculaController::class, 'webIndex'])->name('matriculas.index');
     });
 
     // Student Routes - Can only view

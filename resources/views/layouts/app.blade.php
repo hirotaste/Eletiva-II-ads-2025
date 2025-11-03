@@ -217,6 +217,41 @@
                             <div class="nav-tooltip">Salas de Aula</div>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cursos.index') }}">
+                            <i class="fas fa-graduation-cap me-2"></i>
+                            <span class="nav-text">Cursos</span>
+                            <div class="nav-tooltip">Cursos</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('salas.index') }}">
+                            <i class="fas fa-building me-2"></i>
+                            <span class="nav-text">Salas</span>
+                            <div class="nav-tooltip">Salas</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('periodos-letivos.index') }}">
+                            <i class="fas fa-calendar-alt me-2"></i>
+                            <span class="nav-text">Períodos Letivos</span>
+                            <div class="nav-tooltip">Períodos Letivos</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('turmas.index') }}">
+                            <i class="fas fa-chalkboard me-2"></i>
+                            <span class="nav-text">Turmas</span>
+                            <div class="nav-tooltip">Turmas</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('matriculas.index') }}">
+                            <i class="fas fa-clipboard-list me-2"></i>
+                            <span class="nav-text">Matrículas</span>
+                            <div class="nav-tooltip">Matrículas</div>
+                        </a>
+                    </li>
                 </ul>
                 
                 <!-- User Info & Logout -->
