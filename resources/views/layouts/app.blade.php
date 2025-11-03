@@ -240,7 +240,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('turmas.index') }}">
-                            <i class="fas fa-users-class me-2"></i>
+                            <i class="fas fa-chalkboard me-2"></i>
                             <span class="nav-text">Turmas</span>
                             <div class="nav-tooltip">Turmas</div>
                         </a>

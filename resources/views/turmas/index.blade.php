@@ -61,7 +61,7 @@
             </div>
         @else
             <div class="text-center py-5">
-                <i class="fas fa-users-class fa-3x text-muted mb-3"></i>
+                <i class="fas fa-chalkboard-teacher fa-3x text-muted mb-3"></i>
                 <h5 class="text-muted">Nenhuma turma cadastrada</h5>
                 <p class="text-muted">Clique no botão "Nova Turma" para adicionar a primeira turma.</p>
                 <a href="{{ route('turmas.create') }}" class="btn btn-primary">

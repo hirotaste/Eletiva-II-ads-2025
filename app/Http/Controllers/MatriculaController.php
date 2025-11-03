@@ -70,6 +70,9 @@ class MatriculaController extends Controller
             $validated['status'] = 'matriculado';
         }
 
+        // Set enrollment date to current timestamp
+        $validated['data_matricula'] = now();
+
         // Create enrollment
         $matricula = Matricula::create($validated);
 
