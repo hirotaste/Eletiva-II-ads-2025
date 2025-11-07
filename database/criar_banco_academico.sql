@@ -1,4 +1,20 @@
 -- ============================================
+-- SCRIPT DE CRIAÇÃO DO BANCO DE DADOS ACADÊMICO
+-- Sistema de Gestão Acadêmica
+-- ============================================
+
+-- Remove o banco se já existir (CUIDADO: apaga todos os dados!)
+DROP DATABASE IF EXISTS academico;
+
+-- Cria o banco de dados academico
+CREATE DATABASE academico
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+-- Seleciona o banco de dados academico para uso
+USE academico;
+
+-- ============================================
 -- SCHEMA COMPLETO - SISTEMA DE GESTÃO ACADÊMICA
 -- MySQL / MariaDB (XAMPP Compatible)
 -- Com suporte a Otimização de Horários, Métricas e Relatórios
@@ -617,3 +633,13 @@ INSERT INTO configuracao_pontuacao (
     10, 5,
     -50, 3
 );
+
+-- ============================================
+-- FINALIZAÇÃO
+-- ============================================
+
+COMMIT;
+
+-- Mensagem de sucesso
+SELECT 'Banco de dados "academico" criado com sucesso!' AS status;
+SELECT COUNT(*) AS total_tabelas FROM information_schema.tables WHERE table_schema = 'academico';
