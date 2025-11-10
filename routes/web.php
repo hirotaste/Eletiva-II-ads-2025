@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\ProfessorDisponibilidadeController;
+use App\Http\Controllers\ProfessorDisciplinaController;
 use App\Http\Middleware\NivelAdmMiddleware;
 use App\Http\Middleware\NivelProfessorMiddleware;
 use App\Http\Middleware\NivelEstudanteMiddleware;
@@ -140,6 +141,13 @@ Route::middleware('auth')->group(function () {
         
         // Disponibilidade - Professores podem ver apenas a própria
         Route::get('/disponibilidade', [ProfessorDisponibilidadeController::class, 'index'])->name('disponibilidade.index');
+        
+        // Preferências de Disciplinas - Professores podem gerenciar apenas as próprias
+        Route::get('/professor-disciplina', [ProfessorDisciplinaController::class, 'index'])->name('professor-disciplina.index');
+        Route::post('/professor-disciplina', [ProfessorDisciplinaController::class, 'store'])->name('professor-disciplina.store');
+        Route::put('/professor-disciplina/{id}', [ProfessorDisciplinaController::class, 'update'])->name('professor-disciplina.update');
+        Route::delete('/professor-disciplina/{id}', [ProfessorDisciplinaController::class, 'destroy'])->name('professor-disciplina.destroy');
+        
         Route::get('/classrooms', [ClassroomController::class, 'webIndex'])->name('classrooms.index');
         Route::get('/cursos', [CursoController::class, 'webIndex'])->name('cursos.index');
         Route::get('/salas', [SalaController::class, 'webIndex'])->name('salas.index');

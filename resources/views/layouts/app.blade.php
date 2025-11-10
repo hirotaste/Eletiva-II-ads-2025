@@ -252,6 +252,26 @@
                             <div class="nav-tooltip">Matrículas</div>
                         </a>
                     </li>
+                    
+                    @if(auth()->user()->isProfessor() || auth()->user()->isAdmin())
+                    <li class="nav-item mt-3" style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
+                        <small class="text-white-50 px-3 nav-text" style="font-size: 0.75rem;">FUNÇÕES AVANÇADAS</small>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('disponibilidade.index') }}">
+                            <i class="fas fa-calendar-check me-2"></i>
+                            <span class="nav-text">Disponibilidade</span>
+                            <div class="nav-tooltip">Disponibilidade de Horários</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('professor-disciplina.index') }}">
+                            <i class="fas fa-book-open me-2"></i>
+                            <span class="nav-text">Preferências</span>
+                            <div class="nav-tooltip">Preferências de Disciplinas</div>
+                        </a>
+                    </li>
+                    @endif
                 </ul>
                 
                 <!-- User Info & Logout -->
