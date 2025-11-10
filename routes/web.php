@@ -14,6 +14,7 @@ use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\ProfessorDisponibilidadeController;
 use App\Http\Middleware\NivelAdmMiddleware;
 use App\Http\Middleware\NivelProfessorMiddleware;
 use App\Http\Middleware\NivelEstudanteMiddleware;
@@ -119,6 +120,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/matriculas/{id}/edit', [MatriculaController::class, 'edit'])->name('matriculas.edit');
         Route::put('/matriculas/{id}', [MatriculaController::class, 'webUpdate'])->name('matriculas.update');
         Route::delete('/matriculas/{id}', [MatriculaController::class, 'webDestroy'])->name('matriculas.destroy');
+
+        // Disponibilidade de Professores - Admin pode editar qualquer professor
+        Route::get('/disponibilidade/{id}/edit', [ProfessorDisponibilidadeController::class, 'edit'])->name('disponibilidade.edit');
+        Route::put('/disponibilidade/{id}', [ProfessorDisponibilidadeController::class, 'update'])->name('disponibilidade.update');
+        Route::post('/disponibilidade/copiar', [ProfessorDisponibilidadeController::class, 'copiar'])->name('disponibilidade.copiar');
+        
+        // Configuração Geral de Horários (Admin Only)
+        Route::get('/disponibilidade/configuracao', [ProfessorDisponibilidadeController::class, 'configuracao'])->name('disponibilidade.configuracao');
+        Route::post('/disponibilidade/configuracao', [ProfessorDisponibilidadeController::class, 'salvarConfiguracao'])->name('disponibilidade.salvar-configuracao');
     });
 
     // Professor and Admin Routes
@@ -127,6 +137,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/teachers', [TeacherController::class, 'webIndex'])->name('teachers.index');
         Route::get('/students', [StudentController::class, 'webIndex'])->name('students.index');
         Route::get('/disciplines', [DisciplineController::class, 'webIndex'])->name('disciplines.index');
+        
+        // Disponibilidade - Professores podem ver apenas a própria
+        Route::get('/disponibilidade', [ProfessorDisponibilidadeController::class, 'index'])->name('disponibilidade.index');
         Route::get('/classrooms', [ClassroomController::class, 'webIndex'])->name('classrooms.index');
         Route::get('/cursos', [CursoController::class, 'webIndex'])->name('cursos.index');
         Route::get('/salas', [SalaController::class, 'webIndex'])->name('salas.index');

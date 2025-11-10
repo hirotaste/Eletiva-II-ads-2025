@@ -50,6 +50,9 @@
                             </td>
                             <td class="text-end">
                                 <div class="action-buttons-container">
+                                    <a href="{{ route('disponibilidade.edit', $teacher['id']) }}" class="btn btn-outline-success action-btn" title="Gerenciar Disponibilidade">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </a>
                                     <a href="{{ route('teachers.edit', $teacher['id']) }}" class="btn btn-outline-primary action-btn" title="Editar Professor">
                                         <i class="fas fa-edit"></i>
                                     </a>
