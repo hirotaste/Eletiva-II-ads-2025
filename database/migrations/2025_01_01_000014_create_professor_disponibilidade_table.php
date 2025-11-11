@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->integer('preferencia')->nullable(); // 1-5 scale
                 $table->timestamps();
 
-                $table->unique(['professor_id', 'dia_semana', 'hora_inicio']);
+                $table->unique(['professor_id', 'dia_semana', 'hora_inicio'], 'prof_disp_unique');
             });
 
             // Add check constraints via raw SQL
