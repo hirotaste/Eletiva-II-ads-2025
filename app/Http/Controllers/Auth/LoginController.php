@@ -23,6 +23,13 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+        \Log::info('Login attempt', [
+            'email' => $request->input('email'),
+            'ip' => $request->ip(),
+            'has_token' => $request->has('_token'),
+            'session_id' => $request->session()->getId(),
+        ]);
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -30,6 +37,11 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
+            
+            \Log::info('Login successful', [
+                'user_id' => auth()->id(),
+                'email' => auth()->user()->email,
+            ]);
 
             // Log successful login
             try {
@@ -51,6 +63,11 @@ class LoginController extends Controller
         }
 
         // Log failed login attempt
+        \Log::warning('Login failed', [
+            'email' => $request->input('email'),
+            'ip' => $request->ip(),
+        ]);
+
         try {
             AccessLog::create([
                 'user_id' => null,

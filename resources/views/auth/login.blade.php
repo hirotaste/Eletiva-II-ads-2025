@@ -196,6 +196,13 @@
             <button type="submit" class="btn btn-login">
                 <i class="fas fa-sign-in-alt me-2"></i>Entrar
             </button>
+
+            @if ($errors->has('email'))
+                <div class="alert alert-danger mt-3 mb-0" role="alert" style="border-left: 4px solid #dc3545;">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <strong>Erro de autenticação:</strong> {{ $errors->first('email') }}
+                </div>
+            @endif
         </form>
 
         <div class="credentials-info">
